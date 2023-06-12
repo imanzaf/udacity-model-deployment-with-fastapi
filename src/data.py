@@ -61,4 +61,4 @@ def transform_data(df, label=None):
         lb = LabelBinarizer()
         y = lb.fit_transform(y.values).ravel()
 
-    return X, y, encoder
+    return X, y, encoder, lb

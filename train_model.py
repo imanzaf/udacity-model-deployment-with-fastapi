@@ -16,7 +16,7 @@ if __name__ == '__main__':
 
     # Clean & Transform data
     df = data.clean_data(df)
-    X, y, encoder = data.transform_data(df, label='salary')
+    X, y, encoder, lb = data.transform_data(df, label='salary')
 
     # Split data
     X_train, X_test, y_train, y_test = train_test_split(X, y,
@@ -40,3 +40,4 @@ if __name__ == '__main__':
     # save model and encoder
     joblib.dump(lgbm, "training_output/model.pkl")
     joblib.dump(encoder, "training_output/encoder.pkl")
+    joblib.dump(lb, "training_output/binarizer.pkl")
