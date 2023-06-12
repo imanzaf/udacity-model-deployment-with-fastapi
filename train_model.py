@@ -30,10 +30,11 @@ if __name__ == '__main__':
     preds = model.inference(X_test, lgbm)
 
     # Print classification scores
-    precision, recall, fbeta = model.compute_model_metrics(y_test, preds)
+    precision, recall, fbeta, accuracy = model.compute_model_metrics(y_test, preds)
     print(f"Precision: {precision}")
     print(f"Recall: {recall}")
     print(f"fbeta: {fbeta}")
+    print(f"Accuracy: {accuracy}")
 
     # save model and encoder
     joblib.dump(lgbm, "training_output/model.pkl")

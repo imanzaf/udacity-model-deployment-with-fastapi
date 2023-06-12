@@ -2,7 +2,7 @@
 Functions to train, evaluate, and run a Machine Learning model
 '''
 
-from sklearn.metrics import fbeta_score, precision_score, recall_score
+from sklearn.metrics import fbeta_score, precision_score, recall_score, accuracy_score
 from sklearn.model_selection import GridSearchCV
 from lightgbm import LGBMClassifier
 
@@ -76,4 +76,6 @@ def compute_model_metrics(y, preds):
     fbeta = fbeta_score(y, preds, beta=1, zero_division=1)
     precision = precision_score(y, preds, zero_division=1)
     recall = recall_score(y, preds, zero_division=1)
-    return precision, recall, fbeta
+    accuracy = accuracy_score(y, preds)
+
+    return precision, recall, fbeta, accuracy
