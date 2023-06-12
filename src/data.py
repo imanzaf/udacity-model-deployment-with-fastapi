@@ -39,7 +39,7 @@ def transform_data(df, label=None):
     :returns y: (array) label
     :returns encoder: encoder object fit on provided data
     """
-    if label != None:
+    if label is not None:
         y = pd.DataFrame(df[label])
         X = df.drop([label], axis=1)
     else:
@@ -57,7 +57,7 @@ def transform_data(df, label=None):
     X = pd.concat([df_categorical, X[numeric_cols]], axis=1)
 
     # binarize label
-    if y.empty == False:
+    if y.empty is False:
         lb = LabelBinarizer()
         y = lb.fit_transform(y.values).ravel()
 

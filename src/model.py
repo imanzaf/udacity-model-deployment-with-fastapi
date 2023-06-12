@@ -51,7 +51,7 @@ def inference(X, model, encoder=None):
 
     :returns preds: (np.array) Predictions from the model.
     """
-    if encoder != None:
+    if encoder is not None:
         # Run encoder on data if not transformed
         X = encoder.transform(X)
 
