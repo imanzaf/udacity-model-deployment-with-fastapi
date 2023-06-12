@@ -2,7 +2,8 @@
 Functions to train, evaluate, and run a Machine Learning model
 '''
 
-from sklearn.metrics import fbeta_score, precision_score, recall_score, accuracy_score
+from sklearn.metrics import fbeta_score, precision_score,\
+    recall_score, accuracy_score
 from sklearn.model_selection import GridSearchCV
 from lightgbm import LGBMClassifier
 
