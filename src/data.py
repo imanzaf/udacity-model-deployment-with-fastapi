@@ -27,24 +27,24 @@ def clean_data(df):
     return df
 
 
-# incomplete
-def transform_data(X, label=None):
+def transform_data(df, label=None):
     """
     Transforms data using One Hot Encoding for categorical variables.
     If label provided, splits data into X, y, before encoding
 
-    :param X: Clean data
+    :param df: Clean data
     :param label: Name of label column
 
     :returns X: (pandas dataframe) encoded features
     :returns y: (array) label
     :returns encoder: encoder object fit on provided data
     """
-    if label is not None:
-        y = pd.DataFrame(X[label])
-        X = X.drop(label, axis=1, inplace=True)
+    if label != None:
+        y = pd.DataFrame(df[label])
+        X = df.drop([label], axis=1)
     else:
-        y = "Label not provided"
+        y = pd.DataFrame()
+        X = df
 
     # get list of categorical and numeric columns
     categorical_cols = [x for x in X.columns if x not in
@@ -53,11 +53,11 @@ def transform_data(X, label=None):
 
     # one hot encode categorical variables
     encoder = OneHotEncoder(sparse_output=False, handle_unknown='ignore')
-    df_categorical = encoder.fit_transform(X[categorical_cols])
+    df_categorical = pd.DataFrame(encoder.fit_transform(X[categorical_cols]))
     X = pd.concat([df_categorical, X[numeric_cols]], axis=1)
 
     # binarize label
-    if y != "Label not provided":
+    if y.empty == False:
         lb = LabelBinarizer()
         y = lb.fit_transform(y.values).ravel()
 

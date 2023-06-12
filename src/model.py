@@ -41,6 +41,26 @@ def train_model(X_train, y_train):
     return model
 
 
+def inference(X, model, encoder=None):
+    """
+    Run model inferences and return the predictions.
+
+    :param X: (np.array) Data used for prediction.
+    :param model: Trained machine learning model.
+    :param encoder: trained encoder object for categorical features.
+
+    :returns preds: (np.array) Predictions from the model.
+    """
+    if encoder != None:
+        # Run encoder on data if not transformed
+        X = encoder.transform(X)
+
+    # Run inferences on best estimator
+    preds = model.best_estimator_.predict(X)
+
+    return preds
+
+
 def compute_model_metrics(y, preds):
     """
     Validates the trained machine learning model using:
@@ -57,17 +77,3 @@ def compute_model_metrics(y, preds):
     precision = precision_score(y, preds, zero_division=1)
     recall = recall_score(y, preds, zero_division=1)
     return precision, recall, fbeta
-
-
-def inference(model, X):
-    """
-    Run model inferences and return the predictions.
-
-    :param model: Trained machine learning model.
-    :param X: (np.array) Data used for prediction.
-
-    :returns preds: (np.array) Predictions from the model.
-    """
-    # Run inferences on best estimator
-    preds = model.best_estimator_.predict(X)
-    return preds
