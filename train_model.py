@@ -19,7 +19,9 @@ if __name__ == '__main__':
     X, y, encoder = data.transform_data(df, label='salary')
 
     # Split data
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20)
+    X_train, X_test, y_train, y_test = train_test_split(X, y,
+                                                        test_size=0.20,
+                                                        random_state=42)
 
     # Train model
     lgbm = model.train_model(X_train, y_train)
