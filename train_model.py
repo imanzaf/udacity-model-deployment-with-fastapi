@@ -27,17 +27,18 @@ if __name__ == '__main__':
                         and x not in ['salary']]
 
     # Transform data
-    X_train, y_train, encoder, lb = dt.process_data(train,
-                                                    categorical_features=categorical_cols,
-                                                    label='salary',
-                                                    training=True)
+    X_train, y_train, encoder, lb = \
+        dt.process_data(train,
+                        categorical_features=categorical_cols,
+                        label='salary', training=True)
 
-    X_test, y_test, encoder, lb = dt.process_data(test,
-                                                  categorical_features=categorical_cols,
-                                                  label='salary',
-                                                  encoder=encoder,
-                                                  lb=lb,
-                                                  training=False)
+    X_test, y_test, encoder, lb = \
+        dt.process_data(test,
+                        categorical_features=categorical_cols,
+                        label='salary',
+                        encoder=encoder,
+                        lb=lb,
+                        training=False)
 
     # Train model
     lgbm = ml.train_model(X_train, y_train)

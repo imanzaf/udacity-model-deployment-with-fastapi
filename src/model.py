@@ -96,8 +96,13 @@ def slice_metrics(feature, X, y, preds):
     :returns metrics: df with metrics for each slice
     """
     # initialize empty df for metrics
-    metrics = pd.DataFrame(columns=['precision', 'recall', 'fbeta', 'accuracy'],
-                           index=X[feature].unique().tolist())
+    metrics = pd.DataFrame(
+        columns=[
+            'precision',
+            'recall',
+            'fbeta',
+            'accuracy'],
+        index=X[feature].unique().tolist())
 
     # join features and label / preds
     df = X.copy()
@@ -118,6 +123,8 @@ def slice_metrics(feature, X, y, preds):
         accuracy = accuracy_score(y_true, y_pred)
 
         # add metrics to df
-        metrics.loc[slice] = pd.Series({'precision': precision, 'recall': recall, 'fbeta': fbeta, 'accuracy': accuracy})
+        metrics.loc[slice] = pd.Series(
+            {'precision': precision, 'recall': recall,
+             'fbeta': fbeta, 'accuracy': accuracy})
 
     return metrics

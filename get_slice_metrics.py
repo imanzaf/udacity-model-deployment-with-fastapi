@@ -23,8 +23,8 @@ binarizer = joblib.load('training_output/binarizer.pkl')
 test = train_test_split(df, test_size=0.20, random_state=42)[1]
 
 # Transform data
-categorical_cols = [x for x in test.columns if x not in
-                        test.select_dtypes(include=np.number).columns.tolist() and x not in ['salary']]
+categorical_cols = [x for x in test.columns if x not in test.select_dtypes(
+    include=np.number).columns.tolist() and x not in ['salary']]
 
 X_test, y_test = dt.process_data(test,
                                  categorical_features=categorical_cols,
