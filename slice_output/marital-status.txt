@@ -1,0 +1,8 @@
+                      precision    recall     fbeta  accuracy
+Divorced               0.916667  0.427184  0.582781  0.931522
+Married-civ-spouse     0.781099  0.734802  0.757244  0.789831
+Never-married          0.884615  0.446602  0.593548  0.970367
+Separated                   1.0  0.473684  0.642857  0.952153
+Widowed                0.666667  0.210526      0.32  0.918269
+Married-spouse-absent       1.0     0.375  0.545455  0.947917
+Married-AF-spouse           1.0       0.0       0.0      0.25

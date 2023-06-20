@@ -1,0 +1,6 @@
+                   precision    recall     fbeta  accuracy
+White               0.792176  0.680672  0.732203  0.872922
+Black               0.758621  0.676923  0.715447  0.941569
+Other                    1.0  0.666667       0.8  0.963636
+Asian-Pac-Islander  0.783333  0.758065  0.770492  0.854922
+Amer-Indian-Eskimo  0.857143       0.6  0.705882  0.929577

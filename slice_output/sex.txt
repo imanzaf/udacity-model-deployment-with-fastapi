@@ -1,0 +1,3 @@
+       precision    recall     fbeta  accuracy
+Female  0.785276  0.549356  0.646465  0.934149
+Male    0.792121  0.706278   0.74674  0.853886

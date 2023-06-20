@@ -6,6 +6,7 @@ from sklearn.metrics import fbeta_score, precision_score,\
     recall_score, accuracy_score
 from sklearn.model_selection import GridSearchCV
 from lightgbm import LGBMClassifier
+import pandas as pd
 
 
 def train_model(X_train, y_train):
@@ -65,7 +66,7 @@ def inference(X, model, encoder=None):
 def compute_model_metrics(y, preds):
     """
     Validates the trained machine learning model using:
-     precision, recall, and F1.
+     precision, recall, F1, and accuracy
 
     :param y: (np.array) Known labels, binarized
     :param preds: (np.array) Predicted labels, binarized.
@@ -73,6 +74,7 @@ def compute_model_metrics(y, preds):
     :returns precision: (float)
     :returns recall: (float)
     :returns fbeta: (float)
+    :returns accuracy: (float)
     """
     fbeta = fbeta_score(y, preds, beta=1, zero_division=1)
     precision = precision_score(y, preds, zero_division=1)
@@ -80,3 +82,42 @@ def compute_model_metrics(y, preds):
     accuracy = accuracy_score(y, preds)
 
     return precision, recall, fbeta, accuracy
+
+
+def slice_metrics(feature, X, y, preds):
+    """
+    Get evaluation metrics on slice of data
+
+    :param feature: (str) categorical feature to create slices for
+    :param X: (df) features
+    :param y: ground truth data
+    :param preds: model predictions
+
+    :returns metrics: df with metrics for each slice
+    """
+    # initialize empty df for metrics
+    metrics = pd.DataFrame(columns=['precision', 'recall', 'fbeta', 'accuracy'],
+                           index=X[feature].unique().tolist())
+
+    # join features and label / preds
+    df = X.copy()
+    df['ground_truth'], df['predictions'] = y, preds
+
+    #
+    for slice in df[feature].unique():
+
+        # get labels and predictions
+        y_true = df[df[feature] == slice]['ground_truth']
+        y_pred = df[df[feature] == slice]['predictions']
+
+        # compute metrics
+        # print(f'Classification Metrics for {slice_feature}:{slice}')
+        fbeta = fbeta_score(y_true, y_pred, beta=1, zero_division=1)
+        precision = precision_score(y_true, y_pred, zero_division=1)
+        recall = recall_score(y_true, y_pred, zero_division=1)
+        accuracy = accuracy_score(y_true, y_pred)
+
+        # add metrics to df
+        metrics.loc[slice] = pd.Series({'precision': precision, 'recall': recall, 'fbeta': fbeta, 'accuracy': accuracy})
+
+    return metrics

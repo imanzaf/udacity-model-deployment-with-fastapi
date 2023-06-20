@@ -1,0 +1,16 @@
+                  precision    recall     fbeta  accuracy
+Adm-clerical       0.716418       0.5  0.588957  0.907713
+Exec-managerial    0.800983  0.821159  0.810945  0.818616
+Machine-op-inspct  0.772727  0.361702  0.492754  0.907407
+Craft-repair       0.792453  0.464088  0.585366  0.855055
+Prof-specialty     0.802469  0.829082  0.815558  0.822464
+Sales              0.779006  0.734375  0.756032  0.875171
+Handlers-cleaners       0.8  0.333333  0.470588  0.967033
+Other-service      0.777778  0.269231       0.4  0.968516
+Protective-serv    0.702703  0.619048  0.658228  0.801471
+Priv-house-serv         1.0       1.0       1.0       1.0
+Transport-moving   0.818182  0.421875  0.556701  0.864353
+?                  0.863636  0.452381   0.59375  0.933162
+Farming-fishing         1.0  0.214286  0.352941   0.88601
+Tech-support       0.763636  0.823529  0.792453  0.883598
+Armed-Forces            1.0       1.0       1.0       1.0
