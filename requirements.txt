@@ -8,3 +8,11 @@ numpy==1.24.3
 
 # train_model.py requirements
 joblib==1.2.0
+
+# main.py requirements
+httpx==0.24.1
+fastapi==0.96.0
+pydantic==1.10.8
+
+# testing requirements
+pytest==7.3.1
