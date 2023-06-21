@@ -79,6 +79,7 @@ def process_data(
         y = df[label]
         X = df.drop(label, axis=1)
     else:
+        X = df
         y = np.array([])
 
     X_categorical = X[categorical_features].values
