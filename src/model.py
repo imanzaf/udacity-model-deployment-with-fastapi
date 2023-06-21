@@ -43,20 +43,15 @@ def train_model(X_train, y_train):
     return model
 
 
-def inference(X, model, encoder=None):
+def inference(X, model):
     """
     Run model inferences and return the predictions.
 
     :param X: (np.array) Data used for prediction.
     :param model: Trained machine learning model.
-    :param encoder: trained encoder object for categorical features.
 
     :returns preds: (np.array) Predictions from the model.
     """
-    if encoder is not None:
-        # Run encoder on data if not transformed
-        X = encoder.transform(X)
-
     # Run inferences on best estimator
     preds = model.best_estimator_.predict(X)
 
