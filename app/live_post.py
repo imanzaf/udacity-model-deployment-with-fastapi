@@ -21,6 +21,7 @@ data = {"age": 39,
         "native_country": "United-States"
         }
 
-r = requests.post('https://imanzaf-udacity-app.onrender.com/predict', json=data)
+r = requests.post('https://imanzaf-udacity-app.onrender.com/predict',
+                  json=data)
 print(f"Request Status Code: {r.status_code}")
 print(f"Request Response (Model Inference Result): {r.json()}")
