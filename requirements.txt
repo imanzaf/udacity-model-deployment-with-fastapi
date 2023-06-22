@@ -1,5 +1,5 @@
 # model.py requirements
-scikit-learn==1.2.2
+scikit-learn
 lightgbm==3.3.5
 
 # data.py requirements
@@ -13,6 +13,7 @@ joblib==1.2.0
 httpx==0.24.1
 fastapi==0.96.0
 pydantic==1.10.8
+uvicorn==0.22.0
 
 # testing requirements
 pytest==7.3.1
