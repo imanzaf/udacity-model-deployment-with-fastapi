@@ -45,8 +45,8 @@ class Census(BaseModel):
 @app.post("/predict")
 async def get_prediction(data: Census):
     # import model and encoder
-    model = joblib.load('training_output/model.pkl')
-    encoder = joblib.load('training_output/encoder.pkl')
+    model = joblib.load('../training_output/model.pkl')
+    encoder = joblib.load('../training_output/encoder.pkl')
 
     # Create dataframe
     df = pd.DataFrame([data.dict()])
