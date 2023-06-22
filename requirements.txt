@@ -1,10 +1,10 @@
 # model.py requirements
-scikit-learn
+scikit-learn==1.2.2
 lightgbm==3.3.5
 
 # data.py requirements
-pandas
-numpy
+pandas==2.0.2
+numpy==1.24.3
 
 # train_model.py requirements
 joblib==1.2.0
