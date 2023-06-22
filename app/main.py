@@ -3,8 +3,8 @@ This file contains the code for the API
 '''
 
 import sys
-sys.path.insert(1, '/Users/iman/desktop/workspace/github/udacity/udacity-model-deployment-with-fastapi/')  # noqa: E501
-
+# sys.path.insert(1, '/Users/iman/desktop/workspace/github/udacity/udacity-model-deployment-with-fastapi/')  # noqa: E501
+sys.path.append("..")
 
 import joblib  # noqa: E402
 import src.data as dt  # noqa: E402
