@@ -45,11 +45,18 @@ class Census(BaseModel):
 @app.post("/predict")
 async def get_prediction(data: Census):
     # import model and encoder
-    model = joblib.load('../training_output/model.pkl')
-    encoder = joblib.load('../training_output/encoder.pkl')
+    try:
+        model = joblib.load('training_output/model.pkl')
+        encoder = joblib.load('training_output/encoder.pkl')
+    except FileNotFoundError:
+        model = joblib.load('../training_output/model.pkl')
+        encoder = joblib.load('../training_output/encoder.pkl')
 
     # Create dataframe
-    df = pd.DataFrame([data.dict()])
+    try:
+        df = pd.DataFrame([data.dict()])
+    except AttributeError:
+        df = pd.DataFrame([data])
 
     # Define categorical features
     cat_features = [
