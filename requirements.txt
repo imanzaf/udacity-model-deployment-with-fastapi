@@ -3,8 +3,8 @@ scikit-learn
 lightgbm==3.3.5
 
 # data.py requirements
-pandas==2.0.2
-numpy==1.24.3
+pandas
+numpy
 
 # train_model.py requirements
 joblib==1.2.0
