@@ -2,16 +2,16 @@
 This file contains the code for the API
 '''
 
-import joblib
-import src.data as dt
-import src.model as ml
-import pandas as pd
-from pydantic import BaseModel, Field
-from fastapi import FastAPI
 import sys
-sys.path.insert(
-    1,
-    '/Users/iman/desktop/workspace/github/udacity/udacity-model-deployment-with-fastapi/')  # noqa: E501
+sys.path.insert(1, '/Users/iman/desktop/workspace/github/udacity/udacity-model-deployment-with-fastapi/')  # noqa: E501
+
+
+import joblib  # noqa: E402
+import src.data as dt  # noqa: E402
+import src.model as ml  # noqa: E402
+import pandas as pd  # noqa: E402
+from pydantic import BaseModel, Field  # noqa: E402
+from fastapi import FastAPI  # noqa: E402
 
 
 # Instantiate app

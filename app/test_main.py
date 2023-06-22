@@ -3,7 +3,7 @@ Test cases for FastAPI app
 '''
 
 from fastapi.testclient import TestClient
-from app.main import app
+from main import app
 import json
 import pytest
 
